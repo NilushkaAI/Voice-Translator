@@ -1,0 +1,77 @@
+/* Base styles for body and container */
+body {
+    font-family: 'Inter', sans-serif;
+    /* Background gradient applied via Tailwind classes in HTML */
+}
+
+.container {
+    /* Styles applied via Tailwind classes in HTML */
+}
+
+/* Custom styles for select, button, textarea to override/enhance Tailwind */
+select,
+textarea {
+    appearance: none; /* Remove default OS styling for select */
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20' fill='none'%3e%3cpath d='M7 7l3 3 3-3m0 6l-3-3-3 3' stroke='%236B7280' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/%3e%3c/svg%3e"); /* Custom arrow for select */
+    background-repeat: no-repeat;
+    background-position: right 0.75rem center;
+    background-size: 1.5em 1.5em;
+}
+
+select:disabled {
+    cursor: not-allowed;
+    background-color: #e5e7eb; /* Lighter grey for disabled select */
+}
+
+button {
+    /* Styles applied via Tailwind classes in HTML */
+}
+
+button:disabled {
+    background-color: #9ca3af;
+    cursor: not-allowed;
+    opacity: 0.8;
+    transform: none; /* Remove hover effect when disabled */
+    box-shadow: none;
+}
+
+textarea {
+    /* min-height handled by h-40 Tailwind class */
+    /* resize-y handled by Tailwind class */
+}
+
+/* Specific styles for language select groups and labels */
+.language-input-group label,
+.language-output-group label {
+    font-weight: 600;
+    color: #374151; /* Darker text for labels */
+}
+
+/* Loading spinner animation */
+.loading-spinner {
+    border: 4px solid rgba(255, 255, 255, 0.3);
+    border-top: 4px solid #fff;
+    border-radius: 50%;
+    width: 24px;
+    height: 24px;
+    animation: spin 1s linear infinite;
+    display: none; /* Hidden by default */
+}
+
+.loading-spinner.active {
+    display: block;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* Responsive adjustments */
+@media (min-width: 768px) {
+    .container {
+        padding: 3.5rem; /* More padding on larger screens */
+    }
+}

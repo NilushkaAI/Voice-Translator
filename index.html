@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Real-time Voice Translator</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Inter Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="style.css">
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body class="bg-gradient-to-br from-indigo-500 to-purple-600 min-h-screen flex items-center justify-center p-4">
+    <div class="container bg-white rounded-3xl shadow-2xl p-8 max-w-4xl w-full flex flex-col gap-6 relative">
+        <div class="flex justify-between items-center mb-6">
+            <h1 class="text-4xl font-extrabold text-gray-800 drop-shadow-sm flex-grow text-center">Voice Translator</h1>
+            <!-- Output Voice selection removed from here -->
+        </div>
+
+        <!-- Language Selection and Controls -->
+        <div class="flex flex-col md:flex-row items-center justify-center gap-4 mb-6">
+            <div class="language-input-group flex-1 w-full">
+                <label for="inputLanguage" class="block text-lg font-semibold text-gray-700 mb-2">Input Language:</label>
+                <select id="inputLanguage" class="w-full p-3 border border-gray-300 rounded-xl focus:ring-indigo-500 focus:border-indigo-500 text-gray-800 bg-gray-50 appearance-none">
+                    <!-- Options populated by JS -->
+                </select>
+            </div>
+
+            <!-- Switch Languages Button -->
+            <button id="switchLanguagesBtn" class="py-3 px-5 bg-gray-700 text-white font-bold text-lg rounded-xl shadow-lg hover:bg-gray-800 transition-all duration-300 ease-in-out flex items-center justify-center gap-2 transform hover:scale-105 md:mt-8">
+                <i class="fas fa-exchange-alt"></i>
+            </button>
+
+            <div class="language-output-group flex-1 w-full">
+                <label for="outputLanguage" class="block text-lg font-semibold text-gray-700 mb-2">Output Language:</label>
+                <select id="outputLanguage" class="w-full p-3 border border-gray-300 rounded-xl focus:ring-indigo-500 focus:border-indigo-500 text-gray-800 bg-gray-50 appearance-none">
+                    <!-- Options populated by JS -->
+                </select>
+            </div>
+        </div>
+
+        <!-- Action Button -->
+        <button id="toggleRecognitionBtn" class="w-full py-4 px-6 bg-indigo-600 text-white font-bold text-lg rounded-xl shadow-lg hover:bg-indigo-700 transition-all duration-300 ease-in-out flex items-center justify-center gap-3 transform hover:scale-105">
+            <span id="buttonText">Start Translation</span>
+            <div id="loadingSpinner" class="loading-spinner"></div>
+        </button>
+
+        <!-- Text Areas -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-6">
+            <div>
+                <label for="inputText" class="block text-lg font-semibold text-gray-700 mb-2">Your Speech (Input):</label>
+                <textarea id="inputText" class="w-full h-40 border border-gray-300 rounded-xl p-4 focus:ring-indigo-500 focus:border-indigo-500 bg-gray-50 text-gray-800 resize-y shadow-inner" placeholder="Speak here..."></textarea>
+            </div>
+            <div>
+                <label for="outputText" class="block text-lg font-semibold text-gray-700 mb-2">Translated Text (Output):</label>
+                <textarea id="outputText" class="w-full h-40 border border-gray-300 rounded-xl p-4 focus:ring-indigo-500 focus:border-indigo-500 bg-gray-50 text-gray-800 resize-y shadow-inner" placeholder="Translation will appear here..." readonly></textarea>
+            </div>
+        </div>
+    </div>
+
+    <!-- Custom JavaScript -->
+    <script src="script.js" defer></script>
+</body>
+</html>
